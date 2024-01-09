@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${song}" th:action="@{/validateSong}" method="post" >
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><label>
+                <input th:field="*{nameSong}">
+            </label></td>
+            <td th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Artist:</td>
+            <td><label>
+                <input th:field="*{artist}">
+            </label></td>
+            <td th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Kind Of Music:</td>
+            <td><label>
+                <input th:field="*{kindOfMusic}">
+            </label></td>
+            <td th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}">Name Error</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
