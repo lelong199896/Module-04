@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title th:text="#{province.update.title}"></title>
+</head>
+<body>
+<p>Language: <a href="?lang=en">English</a> | <a href="?lang=vi">Vietnam</a></p>
+
+<h3 th:text="#{province.update.heading}"></h3>
+<p>
+    <a th:href="@{/provinces}" th:text="#{href.province.list}"></a>
+</p>
+<div id="form">
+    <form th:action="@{/provinces/update/{id}(id=${province.getId()})}" th:object="${province}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="name" th:text="#{province.name}"></label>
+            <input type="text" id="name" th:field="*{name}"/>
+        </div>
+        <input type="submit" th:value="#{save}"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
